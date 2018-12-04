@@ -1,59 +1,149 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>Medi-chain</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <link rel="icon" href="images/medicon.png">
-
-<!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="css/bootstrap.css">
-
-<!-- Personal CSS -->
-  <link rel="stylesheet" href="css/spacing.css" type="text/css">
-  <link rel="stylesheet" href="css/fonts.css" type="text/css">
-  <link rel="stylesheet" href="css/style.css" type="text/css">
-
-<!-- Javascript Links(jQuery, Bootstrap, Popper.js) -->
-  <script src="includes/jquery.min.js"></script>
-  <script src="includes/popper.min.js"></script>
-  <script src="includes/bootstrap.min.js"></script>
+<title>MediChain Appointments</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/calendar.css" rel="stylesheet">
+<script src="./node_modules/web3/dist/web3.min.js"></script>
 
 </head>
 <body>
 
-<!-- NAV -->
-  <link rel="stylesheet" href="css/nav.css" type="text/css">
-  <!-- <nav class="navbar fixed-top navbar-expand-lg toggle-height" id="globalNav">
-      <div class="container">
-        <a href="#" onClick="return false;" class="navbar-brand scrollN">Medi-Chain</a>
-        <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon custom-toggler"></span>
-        </button>
+<div class="header">
+  <h1>MediChain</h1>
+  <p>A <b>Medical Application</b> Right At Your Fingertips.</p>
+</div>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li></li>
-          </ul>
-          <form action="manvir.script">
-            <input type="text" name="userID" placeholder="Username / Email">
-            <input type="password" name="pwd" placeholder="password">
-            <button type="submit" name="mainSubmit">Login</button>
-          </form>
-          <a href="manvirSignupScript">Sign Up</a>
-        </div>
-      </div>
-  </nav> -->
+<div class="navbar">
+  <a href="#" class="active">Home</a>
+  <a href="#">Chat With Doctor</a>
+  <a href="#">Medical History</a>
+  <a href="#" class="right">Logout</a>
+</div>
 
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
-          <div class="navbar-header">
-              <a class="navbar-brand" href="#">Medi-Chain</a>
-          </div>
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</li>
-          </ul>
-      </div>
-  </nav>
+<div class="row">
+  <div class="side">
+      <h2>Calendar</h2>
+      <h5>Schedule an Appointment:</h5>
+      <div class="fakeimg" style="height:565px;">
+	                                                  <!--CALENDAR CODE -->
+	  <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css'>
+	  <table>
+		  <tr><div class = "month"><center> December </center> </tr>
+		  <tr>
+			<th class="day-name">Sun</th>
+			<th class="day-name">Mon</th>
+			<th class="day-name">Tue</th>
+			<th class="day-name">Wed</th>
+			<th class="day-name">Thu</th>
+			<th class="day-name">Fri</th>
+			<th class="day-name">Sat</th>
+		  </tr>
+		  <tr>
+			<td class="day pastday"><span class="number">25</span></td>
+			<td class="day pastday"><span class="number">26</span><span class="event"></span><span class="event"></span></td>
+			<td class="day pastday"><span class="number">27</span></td>
+			<td class="day pastday"><span class="number">28</span><span class="event event-multiday-start"></span></td>
+			<td class="day pastday"><span class="number">29</span><span class="event event-multiday"></span><span class="event event-multiday-start eventclass" style="background-color:#5a9ab2;"></span><span class="event"></td>
+			<td class="day pastday"><span class="number">30</span><span class="event event-multiday-finish"></span><span class="event event-multiday eventclass" style="background-color:#5a9ab2;"></span></td>
+			<td class="day pastday"><span class="number">1</span><span class="event event-ghost"></span><span class="event event-multiday-finish eventclass" style="background-color:#5a9ab2;"></span></td>
+		  </tr>
+		  <tr>
+			<td class="day pastday"><span class="number">2</span></td>
+			<td class="day pastday"><span class="number">3</span><span class="event"></span></td>
+			<td class="day pastday"><span class="number">4</span></td>
+			<td class="day pastday"><span class="number">5</span></td>
+			<td class="day"><span class="number">6</span></td>
+			<td class="day"><span class="number">7</span></td>
+			<td class="day"><span class="number">8</span></td>
+		  </tr>
+		  <tr>
+			<td class="day"><span class="number">9</span></td>
+			<td class="day"><span class="number">10</span></td>
+			<td class="day"><span class="number">11</span><span class="event"></span></td>
+			<td class="day"><span class="number">12</span><span class="event"></span></td>
+			<td class="day"><span class="number">13</span></td>
+			<td class="day"><span class="number">14</span></td>
+			<td class="day"><span class="number">15</span></td>
+		  </tr>
+		  <tr>
+			<td class="day"><span class="number">16</span></td>
+			<td class="day"><span class="number">17</span></td>
+			<td class="day"><span class="number">18</span></td>
+			<td class="day"><span class="number">19</span></td>
+			<td class="day"><span class="number">20</span></td>
+			<td class="day"><span class="number">21</span></td>
+			<td class="day"><span class="number">22</span><span class="event event-multiday-start" style="background-color:#da5f5f;"></td>
+		  </tr>
+		  <tr>
+			<td class="day"><span class="number">23</span><span class="event event-multiday" style="background-color:#da5f5f;"></td>
+			<td class="day"><span class="number">24</span><span class="event event-multiday-finish" style="background-color:#da5f5f;"></td>
+			<td class="day"><span class="number">25</span></td>
+			<td class="day"><span class="number">26</span></td>
+			<td class="day"><span class="number">27</span></td>
+			<td class="day"><span class="number">28</span></td>
+			<td class="day"><span class="number">29</span></td>
+		  </tr>
+		  <tr>
+			<td class="day"><span class="number">30</span></td>
+			<td class="day"><span class="number">31</span><span class="event"></span></td>
+			<td class="day"><span class="number">1</span></td>
+			<td class="day"><span class="number">2</span></td>
+			<td class="day"><span class="number">3</span></td>
+			<td class="day"><span class="number">4</span></td>
+			<td class="day"><span class="number">5</span></td>
+		  </tr>
+	  </table>
+			  
+													<!--END CODE -->
+	  </div>
+      
+  </div>
+  <div class="main">
+      <h2>DOCTOR: </h2>
+      <h5>Date and Time Populate</h5>
+      <div class="fakeimg" style="height:620px;">
+												   <!-- FORM CODE -->
+			  <div class="container">
+		  <form action="/action_page.php">
+			<label for="fname">First Name</label>
+			<input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+			<label for="lname">Last Name</label>
+			<input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+			<label for="allergies">Allergies</label>
+			<select id="allergies" name="allergies">
+			  <option value="peanuts">Peanuts</option>
+			  <option value="antibiotics">Antibiotics</option>
+			  <option value="everything">Everything</option>
+			</select>
+
+			<label for="reason">Reason for Visit</label>
+			<textarea id="reason" name="reason" placeholder="Write something.." style="height:200px"></textarea>
+
+			<input type="submit" id="button" onclick="myfun()" value="Submit">
+		  </form>
+	      </div>
+	  </div>
+  </div>
+</div>
+
+<div class="footer">
+  <h4>Thank you for Choosing MediChain</h4>
+</div>
+
 </body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"> </script>
+<script src="./includes/index.js"></script>
+<script>
+
+
+$(".day").click(function() {
+		console.log(this);
+		//do stuff
+    });
+	
+</script>
 </html>
