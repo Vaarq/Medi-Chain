@@ -14,15 +14,38 @@
   <!-- JS LINKS (BOOTSTRAP ETC) -->
 <script src="./node_modules/web3/dist/web3.min.js"></script>
 <script src="includes/bootstrap.min.js"></script>
+<script src="includes/jquery.js"></script>
 </head>
 
 <body>
   <div class="navbar">
-    <a href="#" onClick="return false;">Home</a>
-    <a href="chatApp.html"class="active">Chat With Doctor</a>
+    <a href="index.html">Home</a>
+    <a href="#" onClick="return false;" class="active">Chat With Doctor</a>
     <a href="#">Medical History</a>
     <a href="#" class="right">Logout</a>
   </div>
+
+  <div class="container-fluid">
+    <div class="row" style="margin-bottom:10%;">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-6"></div>
+      <div class="col-sm-3"></div>
+    </div>
+
+    <div class="row" style="position: fixed; bottom: 10px; width: 75%;">
+      <div class="col-sm-12">
+        <form id="sendForm">
+          <div class="input-group">
+            <input type="text" id="chatMessage" class="form-control">
+            <div class="input-group-btn">
+              <button class="btn btn-dark" type="submit" id="sendMessage">Send</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div> <!-- End Container Fluid -->
 </body>
 
 </html>
