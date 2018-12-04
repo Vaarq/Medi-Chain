@@ -4,6 +4,7 @@
 <title>MediChain Appointments</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="images/medicon.png">
 <link href="css/calendar.css" rel="stylesheet">
 <script src="./node_modules/web3/dist/web3.min.js"></script>
 
@@ -16,8 +17,8 @@
 </div>
 
 <div class="navbar">
-  <a href="#" class="active">Home</a>
-  <a href="#">Chat With Doctor</a>
+  <a href="#" onClick="return false;"class="active">Home</a>
+  <a href="chatApp.html">Chat With Doctor</a>
   <a href="#">Medical History</a>
   <a href="#" class="right">Logout</a>
 </div>
@@ -95,10 +96,10 @@
 			<td class="day"><span class="number">5</span></td>
 		  </tr>
 	  </table>
-			  
+
 													<!--END CODE -->
 	  </div>
-      
+
   </div>
   <div class="main">
       <h2>DOCTOR: </h2>
@@ -144,6 +145,6 @@ $(".day").click(function() {
 		console.log(this);
 		//do stuff
     });
-	
+
 </script>
 </html>
