@@ -1,0 +1,80 @@
+
+<html>
+
+<head>
+<title>MediChain Appointments</title>
+  <!-- META TAGS -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- EXTERNAL STYLING / LINKS -->
+<link rel="icon" href="images/medicon.png">
+<link href="css/chat.css" rel="stylesheet">
+
+  <!-- JS LINKS (BOOTSTRAP ETC) -->
+<script src="includes/jquery.js"></script>
+</head>
+
+<body>
+  <div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="chatApp1.html">Chat With Doctor</a>
+    <a href="aboutUs.html" onClick="return false;" class="active">About MediChain</a>
+    <a href="#" class="right">Logout</a>
+  </div>
+  <div class="row">
+  <div class="side">
+
+      <div class="borderimg" style="height:100%;">
+	  <div class="dropdown">
+
+      </div>
+      </div>
+  </div>
+
+  <div class="main">
+      <h2> The MediChain Team: </h2>
+      <div class="borderimg" style="height:23%;">
+		<h3>Manvir Bal</h3>
+		<b>Email:</b> manvir@mediChain.com
+
+	  </div>
+
+	  <div class="borderimg" style="height:23%;">
+		<h3>Mason Pierce</h3>
+		<b>Email:</b> mason@mediChain.com
+
+	  </div>
+
+
+	  <div class="borderimg" style="height:23%;">
+		<h3>Anna Poon</h3>
+		<b>Email:</b> anna@mediChain.com
+
+	  </div>
+
+  </div>
+</div>
+
+</body>
+<script>
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+function filterFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    div = document.getElementById("myDropdown");
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+        if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+            a[i].style.display = "";
+        } else {
+            a[i].style.display = "none";
+        }
+    }
+}
+</script>
+</html>
