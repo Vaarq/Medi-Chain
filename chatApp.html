@@ -26,36 +26,63 @@
     <a href="#" class="right">Logout</a>
   </div>
 
-  <div class="container">
-    <div class="row" style="margin-bottom:10%;">
-      <div class="col-sm-3"></div>
-      <div class="col-sm-6"></div>
-      <div class="col-sm-3"></div>
-    </div>
+  <div class="row">
+  <div class="side">
 
-    <div class="row" style="float: right; position: fixed; bottom: 8px; width: 80%;">
-      <div class="col-sm-12">
+      <div class="borderimg" style="height:100%;">
+	  <div class="dropdown">
+	      <center>
+		  <button onclick="myFunction()" class="dropbtn">Chat with Me</button>
+		  <div id="myDropdown" class="dropdown-content">
+			<a href="#Stanio">Stan "The man" Labscrov</a>
+			<a href="#Ajit">Ajit Kumilani</a>
+			<a href="#Hyun">Hyun Jaewoo</a>
+			<a href="#Skin">Skinner Thinner</a>
+			<a href="#Harry">Harry Loss</a>
+		  </div>
+		  </center>
+      </div>
+      </div>
+  </div>
+
+  <div class="main">
+
+      <div class="borderimg" style="height:100%;">
+	  <div class="chatcontainer">
         <form id="sendForm">
-          <div class="dropup open">
-            <button class="btn btn-dark dropdown-toggle" type="button" data-toggle="dropdown">Doctors
-            <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li><a href="#">Stan "The man" Labscrov</a></li>
-              <li><a href="#">Ajit Kumilani</a></li>
-              <li><a href="#">Hyun Jaewoo</a></li>
-            </ul>
-          </div>
           <div class="input-group">
             <input type="text" id="chatMessage" class="form-control">
             <div class="input-group-btn">
-              <button class="btn btn-dark" style="padding-top: 2px;"type="submit" id="sendMessage">Send</button>
+              <button class="btn" type="submit" id="sendMessage">Send</button>
             </div>
           </div>
         </form>
-      </div>
-    </div>
+	  </div></div>
 
-  </div> <!-- End Container Fluid -->
+
+  </div>
+</div>
 </body>
+
+<script>
+  function main() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+
+  function filter(){
+    const input, filter, ul, li, a, loop;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    div = document.getElementById("myDropDown");
+    a = div.getElementByTagName("a");
+    for (loop = 0; loop < a.length; loop++) {
+      if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+        a[i].style.display = "";
+      } else {
+        a[i].style.display = "none";
+      }
+    }
+  }
+</script>
 
 </html>
