@@ -1,3 +1,4 @@
+
 <html>
 
 <head>
@@ -9,21 +10,18 @@
   <!-- EXTERNAL STYLING / LINKS -->
 <link rel="icon" href="images/medicon.png">
 <link href="css/chat.css" rel="stylesheet">
-<link href="css/bootstrap.css" rel="stylesheet">
 
   <!-- JS LINKS (BOOTSTRAP ETC) -->
 <script src="includes/jquery.js"></script>
 </head>
 
 <body>
-
   <div class="navbar">
     <a href="index.html">Home</a>
-    <a href="#" onClick="return false;" class="active">Chat With Doctor</a>
-    <a href="#">Medical History</a>
+    <a href="chatApp1.html" onClick="return false;" class="active">Chat With Doctor</a>
+    <a href="aboutUs.html">About MediChain</a>
     <a href="#" class="right">Logout</a>
   </div>
-
   <div class="row">
   <div class="side">
 
@@ -60,27 +58,26 @@
 
   </div>
 </div>
+
 </body>
-
 <script>
-  function main() {
+function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
-  }
+}
 
-  function filter(){
-    const input, filter, ul, li, a, loop;
+function filterFunction() {
+    var input, filter, ul, li, a, i;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
-    div = document.getElementById("myDropDown");
-    a = div.getElementByTagName("a");
-    for (loop = 0; loop < a.length; loop++) {
-      if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
-        a[i].style.display = "";
-      } else {
-        a[i].style.display = "none";
-      }
+    div = document.getElementById("myDropdown");
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+        if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+            a[i].style.display = "";
+        } else {
+            a[i].style.display = "none";
+        }
     }
-  }
+}
 </script>
-
 </html>
