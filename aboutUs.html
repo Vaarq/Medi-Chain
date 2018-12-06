@@ -9,18 +9,18 @@
 
   <!-- EXTERNAL STYLING / LINKS -->
 <link rel="icon" href="images/medicon.png">
-<link href="css/chat.css" rel="stylesheet">
+<link href="chat.css" rel="stylesheet">
 
   <!-- JS LINKS (BOOTSTRAP ETC) -->
-<script src="includes/jquery.js"></script>
+<script src="jquery.js"></script>
 </head>
 
 <body>
   <div class="navbar">
     <a href="index.html">Home</a>
-    <a href="chatApp.html">Chat With Doctor</a>
+    <a href="chat.html">Chat With Doctor</a>
     <a href="aboutUs.html" onClick="return false;" class="active">About MediChain</a>
-    <a href="#" class="right">Logout</a>
+    <a onClick = "logout()" class="right">Logout</a>
   </div>
   <div class="row">
   <div class="side">
@@ -34,11 +34,6 @@
 
   <div class="main">
       <h2> The MediChain Team: </h2>
-      <div class="borderimg" style="height:23%;">
-		<h3>Manvir Bal</h3>
-        <a href="https://github.com/m-bal"><img src="images\manvir_Pixel.PNG" style="width: 128px; height: 128px;"></a><br>
-	  </div>
-      <br>
 	  <div class="borderimg" style="height:23%;">
 		<h3>Mason Pierce</h3>
         <a href="https://github.com/Vaarq"><img src="images\mason_pixel.PNG" style="width: 128px; height: 128px;"></a><br>
@@ -46,8 +41,14 @@
       <br>
 	  <div class="borderimg" style="height:23%;">
 		<h3>Anna Poon</h3>
-        <a href="https://github.com/"><img src="images\anna_pixel.PNG" style = "width: 128px; height: 128px;"></a><br>
+        <a href="https://github.com/DNAPolymerase"><img src="images\anna_pixel.PNG" style = "width: 128px; height: 128px;"></a><br>
 	  </div>
+      <br>
+	  <div class="borderimg" style="height:23%;">
+		<h3>Manvir Bal</h3>
+        <a href="https://github.com/m-bal"><img src="images\manvir_Pixel.PNG" style="width: 128px; height: 128px;"></a><br>
+	  </div>
+
 
   </div>
 </div>
@@ -71,6 +72,12 @@ function filterFunction() {
             a[i].style.display = "none";
         }
     }
+}
+
+function logout(){
+	sessionStorage.removeItem('store');
+	sessionStorage.clear();
+	window.location.href = "./login.html";
 }
 </script>
 </html>

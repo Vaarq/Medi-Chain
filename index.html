@@ -4,12 +4,10 @@
 <title>MediChain Appointments</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="images/medicon.png">
-<link href="css/calendar.css" rel="stylesheet">
+<link href="index.css" rel="stylesheet">
 <script src="./node_modules/web3/dist/web3.min.js"></script>
 
 </head>
-
 <body>
 
 <div class="header">
@@ -18,10 +16,10 @@
 </div>
 
 <div class="navbar">
-  <a href="#" onClick="return false;"class="active">Home</a>
-  <a href="chatApp.html">Chat With Doctor</a>
+  <a href="#" class="active">Home</a>
+  <a href="./chat.html">Chat With Doctor</a>
   <a href="aboutUs.html">About MediChain</a>
-  <a href="#" class="right">Logout</a>
+  <a href="./log.html" class="right">Logout</a>
 </div>
 
 <div class="row">
@@ -29,7 +27,7 @@
       <h2>Calendar</h2>
       <h5>Schedule an Appointment:</h5>
       <div class="fakeimg" style="height:565px;">
-	                                                  <!-- CALENDAR CODE -->
+	                                                  <!--CALENDAR CODE -->
 	  <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css'>
 	  <table>
 		  <tr><div class = "month"><center> December </center> </tr>
@@ -97,35 +95,33 @@
 			<td class="day"><span class="number">5</span></td>
 		  </tr>
 	  </table>
-
-													<!-- END CALENDAR -->
+			  
+													<!--END CODE -->
 	  </div>
-
+      
   </div>
   <div class="main">
-      <h2>DOCTOR: </h2>
-      <h5>Date and Time Populate</h5>
+      <h5>Date and Time Populate
+		<input type='time' id ="timestamp" value='now'/>
+	  </h5>
       <div class="fakeimg" style="height:620px;">
 												   <!-- FORM CODE -->
 			  <div class="container">
-		  <form action="/action_page.php">
+		  <form action="">
 			<label for="fname">First Name</label>
 			<input type="text" id="fname" name="firstname" placeholder="Your name..">
 
 			<label for="lname">Last Name</label>
 			<input type="text" id="lname" name="lastname" placeholder="Your last name..">
 
-			<label for="allergies">Allergies</label>
-			<select id="allergies" name="allergies">
-			  <option value="peanuts">Peanuts</option>
-			  <option value="antibiotics">Antibiotics</option>
-			  <option value="everything">Everything</option>
+			<label for="doctor">Doctor</label>
+			<select id="doctor" name="doc">
 			</select>
 
 			<label for="reason">Reason for Visit</label>
 			<textarea id="reason" name="reason" placeholder="Write something.." style="height:200px"></textarea>
 
-			<input type="submit" id="button" onclick="myfun()" value="Submit">
+			<input type="submit" id="button" onclick="myfun(event)" value="Submit">
 		  </form>
 	      </div>
 	  </div>
@@ -137,15 +133,24 @@
 </div>
 
 </body>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"> </script>
-<script src="/includes/index.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="./connect.js"></script>
+<script src="./index.js"></script>
 <script>
+$(function(){     
+  var d = new Date(),        
+      h = d.getHours(),
+      m = d.getMinutes();
+  if(h < 10) h = '0' + h; 
+  if(m < 10) m = '0' + m; 
+  $('input[type="time"][value="now"]').each(function(){ 
+    $(this).attr({'value': h + ':' + m});
+  });
+});
 
 
-$(".day").click(function() {
-		console.log(this);
-		//do stuff
-    });
 
 </script>
 </html>
