@@ -1,0 +1,162 @@
+<html>
+
+<head>
+<title>MediChain Appointments</title>
+  <!-- META TAGS -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- EXTERNAL STYLING / LINKS -->
+<link rel="icon" href="images/medicon.png">
+<link href="chat.css" rel="stylesheet">
+<script src="./node_modules/web3/dist/web3.min.js"></script>
+  <!-- JS LINKS (BOOTSTRAP ETC) -->
+  <script src="./jquery.js"></script>
+</head>
+
+<body>
+  <div class="navbar">
+    <a onClick="navagate()">Home</a>
+    <a href="chat.html" onClick="return false;" class="active">Chat With Doctor</a>
+    <a href="aboutUs.html">About MediChain</a>
+    <a onClick="logout()" class="right">Logout</a>
+  </div>
+  <div class="row">
+  <div class="side">
+      
+      <div class="borderimg" style="height:100%;">  
+	  <div class="dropdown">
+	      <center>
+		  <button onclick="myFunction(event)" class="dropbtn">Chat with Me</button>
+		  <div id="myDropdown" class="dropdown-content">
+			<a href="#StanDeMan" id = "op">Stan "The man" Labscrov</a>
+			<a href="#Ajit" id = "op">Ajit Kumilani</a>
+			<a href="#Hyun"  id = "op">Hyun Jaewoo</a>
+			<a href="#Skinner" id = "op">Skinner Thinner</a>
+			<a href="#Harry" id = "op">Harry Loss</a>  
+		  </div>
+		  </center>
+      </div>
+      </div>
+  </div>
+  
+  <div class="main">
+      
+      <div class="borderimg" style="height:100%;">	  
+	  <div class="chatcontainer">
+        <form id="sendForm" style= "height:auto; width:auto;">
+		  <div id="msg" style= "height:1000px; overflow:auto;"></>
+          <div id = "inputBox" class="input-group" style= "height:auto; width:auto;">
+            <input  type="text" id="chatMessage" class="form-control">
+            <div class="input-group-btn">
+              <button class="btn" onClick ="sendmsg(event);" type="submit" id="sendMessage">Send</button>
+            </div>
+          </div>
+        </form>
+	  </div></div>
+	
+     
+  </div>
+</div>
+
+  <!-- End Container Fluid -->
+</body>
+
+<script src="./connect.js"></script>
+
+<script>
+$('#op').click( function(){
+
+	console.log(this);
+
+});
+
+
+function myFunction(event) {
+	event.preventDefault();
+    document.getElementById("myDropdown").classList.toggle("show");
+	if(pI.check(sessionStorage.getItem('store'))){
+		var doctors = dI.getdoctors();
+		console.log(doctors);
+		for(var i = 0; i < 5; i++){
+			if(doctors[i] != ""){
+				console.log("here");
+				$('#myDropdown').append('<a href="#"  id = "op">'+ doctors[i] +' </a>');
+			}
+		}		
+	}else{
+		var pat = dI.getpat();
+		console.log(pat);
+		for(var i = 0; i < 5; i++){
+			if(pat[i] != ""){
+				console.log("here");
+				$('#myDropdown').appendTo('<a href="#"  id = "op">'+ pat[i] +' </a>');
+			}
+		}
+		
+	}
+
+}
+
+function filterFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    div = document.getElementById("myDropdown");
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+        if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+            a[i].style.display = "";
+        } else {
+            a[i].style.display = "none";
+        }
+    }
+}
+
+function sendmsg(e){
+	e.preventDefault();
+	console.log("sfw");
+	$('#msg').append('<p class = "message_item">' + '<b>Owner: </b>'+ $('#chatMessage').val() + '</p>');
+	
+	if(pI.check(sessionStorage.getItem('store'))){
+		var getmg = pI.getmsg(sessionStorage.getItem('store'));
+		console.log(getmg);
+		if(getmg[0] != "")
+		$('#msg').append('<p class = "message_item">' + '<b>' + getmg[0] + ':</b>'+ getmg[1] + '</p>');
+		dI.setmsg("Doctor1@gmail.com",sessionStorage.getItem('store'),$('#chatMessage').val());
+
+		
+	}else{
+		var getmg = dI.getmsg(sessionStorage.getItem('store'));
+		console.log(getmg);
+		if(getmg[0] != "")
+		$('#msg').append('<p class = "message_item">' + '<b>' + getmg[0] + ':</b>'+ getmg[1] + '</p>');
+		pI.setmsg("Bob@gmail.com",sessionStorage.getItem('store'),$('#chatMessage').val());
+
+	
+		
+	}
+	$('#chatMessage').val('');
+	
+}
+
+function navagate(){
+	if(pI.check(sessionStorage.getItem('store'))){
+		window.location.href = "./index.html";
+
+		
+	}else{
+		window.location.href = "./calendardoc.html";
+		
+	}
+
+}
+function logout(){
+	sessionStorage.removeItem('store');
+	sessionStorage.clear();
+	window.location.href = "./login.html";
+}
+
+
+</script>
+</html>
